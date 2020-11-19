@@ -5,7 +5,7 @@ const notes = require('./notes');
 //  Add Command
 yargs.command({
     command: 'add',
-    describe: 'Add a new note,',
+    describe: 'Add a new note.',
     builder: {
         title: {
             describe: 'Title of the note',
@@ -18,9 +18,7 @@ yargs.command({
             type: 'string'
         }
     },
-    handler(argv) {
-        notes.addNote(argv.title, argv.body);
-    }
+    handler(argv) { notes.addNote(argv.title, argv.body); }
 });
 
 yargs.command({
@@ -33,20 +31,18 @@ yargs.command({
             type: 'string'
         }
     },
-    handler(argv){
-        notes.removeNote(argv.title);
-    }
+    handler(argv){ notes.removeNote(argv.title) }
 });
 
 yargs.command({
     command: 'list',
-    describe: 'List all your notes created',
+    describe: 'List all your notes created.',
     handler(){ notes.listNotes() }
 });
 
 yargs.command({
     command: 'read',
-    describe: 'Reading your note',
+    describe: 'Reading your note.',
     builder: {
         title: {
             describe: 'Title of the note you want to read',
@@ -54,11 +50,7 @@ yargs.command({
             type: 'string'
         }
     },
-    handler(argv){
-        notes.readNote(argv.title);
-    }
+    handler(argv){ notes.readNote(argv.title) }
 });
-
-
 
 yargs.parse();
